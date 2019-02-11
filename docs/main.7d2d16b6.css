@@ -1,0 +1,1 @@
+body{font-family:noto sans,roboto,arial,sans-serif}h1{font-family:roboto,source sans pro,noto sans,sans-serif;font-size:4em;text-align:center}.row{width:100%;display:flex;flex-wrap:wrap;justify-content:space-around}.chart-wrapper{margin-bottom:60px}.one-column{flex-basis:50%}.two-column{flex:1 1 0}@media (max-width:767px){.chart-wrapper{flex-basis:100%;flex-grow:1}}

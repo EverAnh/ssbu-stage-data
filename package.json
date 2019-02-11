@@ -1,7 +1,7 @@
 {
   "name": "g6-stage-data",
   "version": "1.0.0",
-  "description": "Data visualization for the Smash Bros stage survey conducted at the Genesis 6 tournament.",
+  "description": "Charts to visualize the Smash Bros stage data collected at the Genesis 6 tournament.",
   "main": "app.js",
   "dependencies": {
     "chart.js": "^2.7.3",
@@ -13,7 +13,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "parcel": "parcel src/index.html --open"
+    "serve": "parcel src/index.html --open",
+    "prebuild": "rmdir dist /s /q && rmdir docs /s /q",
+    "build": "parcel build src/index.html -d docs"
   },
   "repository": {
     "type": "git",
