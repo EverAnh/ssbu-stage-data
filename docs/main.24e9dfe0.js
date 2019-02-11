@@ -129,4 +129,4 @@ var e,t=arguments[3];!function(t,n){"object"==typeof exports&&"undefined"!=typeo
 },{"./chart-settings":"1na/"}],"d6sW":[function(require,module,exports) {
 "use strict";var e=d(require("chart.js")),t=d(require("chartjs-plugin-deferred")),a=require("./data-manual");function d(e){return e&&e.__esModule?e:{default:e}}var i=new e.default(document.getElementById("decision-method-chart").getContext("2d"),{type:"pie",data:a.decisionMethodData,options:{title:{text:"How Game 1 Stage Was Decided"},legend:{reverse:!0}}}),r=new e.default(document.getElementById("agreed-stage-chart").getContext("2d"),{type:"pie",data:a.agreedStageData,options:{title:{text:"Which Stage Mutually Agreed Upon"}}}),n=new e.default(document.getElementById("striked-stage-chart").getContext("2d"),{type:"pie",data:a.strikedStageData,options:{title:{text:"Which Stage Selected With Striking"}}});
 },{"chart.js":"zIr/","chartjs-plugin-deferred":"vKsl","./data-manual":"nDeF"}]},{},["d6sW"], null)
-//# sourceMappingURL=/main.24e9dfe0.map
+//# sourceMappingURL=main.24e9dfe0.map

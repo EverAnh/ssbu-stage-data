@@ -14,8 +14,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "parcel src/index.html --open",
-    "prebuild": "rmdir dist /s /q && rmdir docs /s /q",
-    "build": "parcel build src/index.html -d docs"
+    "prebuild": "rmdir docs /s /q",
+    "build": "parcel build src/index.html -d docs --public-url ./"
   },
   "repository": {
     "type": "git",
