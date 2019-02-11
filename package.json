@@ -1,0 +1,29 @@
+{
+  "name": "g6-stage-data",
+  "version": "1.0.0",
+  "description": "Data visualization for the Smash Bros stage survey conducted at the Genesis 6 tournament.",
+  "main": "app.js",
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "chartjs-plugin-deferred": "^1.0.1",
+    "tabulator-tables": "^4.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parcel": "parcel src/index.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhhn1/g6-stage-data.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhhn1/g6-stage-data/issues"
+  },
+  "homepage": "https://github.com/anhhn1/g6-stage-data#readme"
+}
