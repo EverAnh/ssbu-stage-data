@@ -1,8 +1,8 @@
 {
-  "name": "g6-stage-data",
+  "name": "ssbu-stage-data",
   "version": "1.0.0",
-  "description": "Charts to visualize the Smash Bros stage data collected at the Genesis 6 tournament.",
-  "main": "app.js",
+  "description": "Charts to visualize the Smash Bros Ultimate stage data surveyed from certain major tournaments.",
+  "main": "main.js",
   "dependencies": {
     "chart.js": "^2.7.3",
     "chartjs-plugin-deferred": "^1.0.1",
@@ -13,19 +13,19 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "parcel src/index.html --open",
+    "serve": "parcel src/index.html -d docs --open",
     "prebuild": "rmdir docs /s /q",
     "build": "parcel build src/index.html -d docs --public-url ./"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anhhn1/g6-stage-data.git"
+    "url": "git+https://github.com/anhhn1/ssbu-stage-data.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anhhn1/g6-stage-data/issues"
+    "url": "https://github.com/anhhn1/ssbu-stage-data/issues"
   },
-  "homepage": "https://github.com/anhhn1/g6-stage-data#readme"
+  "homepage": "https://github.com/anhhn1/ssbu-stage-data#readme"
 }

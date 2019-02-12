@@ -1,18 +1,23 @@
 import Chart from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
+import Tabulator from 'tabulator-tables';
 
 import {
-  decisionMethodData,
+  selectionMethodData,
   agreedStageData,
   strikedStageData
 } from './data-manual';
 
-var decisionMethodChart = new Chart(document.getElementById("decision-method-chart").getContext('2d'), {
+import {
+  stageStats
+} from './data-procedural';
+
+var selectionMethodChart = new Chart(document.getElementById("selection-method-chart").getContext('2d'), {
     type: 'pie',
-    data: decisionMethodData,
+    data: selectionMethodData,
     options: {
       title: {
-        text: 'How Game 1 Stage Was Decided'
+        text: 'Game 1 Selection Method'
       },
       legend: {
         reverse: true
