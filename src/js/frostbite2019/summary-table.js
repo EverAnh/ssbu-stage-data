@@ -49,7 +49,7 @@ export const RenderStageSummaryTable = function() {
   stageStats.forEach((e) => {
     e.gamesPlayedPercent = e.gamesPlayed / globalStats.totalGames;
     e.setsPlayedPercent = e.setsPlayed / globalStats.totalSets;
-    e.gamesBannedPercent = e.gamesBanned / (globalStats.totalBans / 2);
+    e.gamesBannedPercent = e.gamesBanned / globalStats.totalBans;
     e.setsBannedPercent = e.setsBanned / globalStats.setsWithBanRecorded;
   });
 
