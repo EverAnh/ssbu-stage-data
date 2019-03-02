@@ -8,6 +8,7 @@ import {
   shortNames
 } from './data';
 
+
 export const RenderPopularityCharts = function() {
 
   const dataSortedByPlayed = Array.from(stageStats).sort((a, b) => {
@@ -19,6 +20,34 @@ export const RenderPopularityCharts = function() {
   });
   const shortLabelsPlayed = dataSortedByPlayed.map(a => a.shortName);
   const stageLabelsPlayed = dataSortedByPlayed.map(a => a.stage);
+
+  const setsPlayedBars = new Chart(document.getElementById("sets-played-bars").getContext('2d'), {
+    type: 'horizontalBar',
+    data: {
+      labels: window.screen.width < 640 ? shortLabelsPlayed : stageLabelsPlayed,
+      datasets: [{
+          data: dataSortedByPlayed.map(a => (a.setsPlayed / globalStats.totalSets * 100)),
+          backgroundColor: 'RGBA(171, 0, 14, .8)',
+          hoverBackgroundColor: 'RGBA(130, 16, 15, 1)',
+          datalabels: {
+            display: false
+          }
+        }
+      ]
+    },
+    options: {
+      title: {
+        text: 'Played In % Of Sets'
+      },
+      legend: {
+        display: false
+      },
+      plugins: {
+        datalabels: {
+        }
+      }
+    }
+  });
 
   const gamesPlayedBars = new Chart(document.getElementById("games-played-bars").getContext('2d'), {
     type: 'horizontalBar',
@@ -48,6 +77,7 @@ export const RenderPopularityCharts = function() {
     }
   });
 
+
   const dataSortedByBanned = Array.from(stageStats).sort((a, b) => {
       if (a.gamesBanned > b.gamesBanned)
         return -1;
@@ -63,7 +93,7 @@ export const RenderPopularityCharts = function() {
     data: {
       labels: window.screen.width < 640 ? shortLabelsBanned : stageLabelsBanned,
       datasets: [{
-          data: dataSortedByBanned.map(a => a.gamesBanned),
+          data: dataSortedByBanned.map(a => (a.gamesBanned / globalStats.setsWithBanRecorded * 100)),
           backgroundColor: 'RGBA(171, 0, 14, .8)',
           hoverBackgroundColor: 'RGBA(130, 16, 15, 1)',
           datalabels: {
@@ -74,7 +104,7 @@ export const RenderPopularityCharts = function() {
     },
     options: {
       title: {
-        text: '# Times Banned (G2+G3)'
+        text: 'Banned In % Of Sets*'
       },
       legend: {
         display: false

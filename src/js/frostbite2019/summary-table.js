@@ -60,15 +60,15 @@ export const RenderStageSummaryTable = function() {
       {title: "#", field: "gamesPlayed", headerSortStartingDir:"desc"},
       {title: "%", field: "gamesPlayedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent}
     ]},
-    {title: "Games Banned", widthGrow: 1, columns: [
+    {title: "Times Banned", widthGrow: 1, columns: [
       {title: "#", field: "gamesBanned", headerSortStartingDir:"desc"},
       {title: "%", field: "gamesBannedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
     ]},
-    {title: "Sets Played", widthGrow: 1, columns: [
+    {title: "Sets Played In", widthGrow: 1, columns: [
       {title: "#", field: "setsPlayed", headerSortStartingDir:"desc"},
       {title: "%", field: "setsPlayedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
     ]},
-    {title: "Sets Banned", widthGrow: 1, columns: [
+    {title: "Sets Banned In", widthGrow: 1, columns: [
       {title: "#", field: "setsBanned", headerSortStartingDir:"desc"},
       {title: "%", field: "setsBannedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
     ]}
