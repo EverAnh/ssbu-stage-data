@@ -14,11 +14,11 @@
         <nav class="mdc-list">
           <a class="mdc-list-item mdc-list-item--activated" href="#general">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">General</i>
-            <span class="mdc-list-item__text">General</span>
+            <span class="mdc-list-item__text">General Data</span>
           </a>
           <a class="mdc-list-item" href="#game-1">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Game 1</i>
-            <span class="mdc-list-item__text">Game 1</span>
+            <span class="mdc-list-item__text">Game 1 Data</span>
           </a>
         </nav>
       </div>
@@ -39,15 +39,15 @@
 
           <a id="general"><h1>SSBU Stage Data:<br />Frostbite 2019</h1></a>
           <div class="page-content-row">
-            <div id="stages-general"></div>
+            <div class="chart-wrapper two-column">
+              <canvas id="played-bars"></canvas>
+            </div>
+            <div class="chart-wrapper two-column">
+              <canvas id="banned-bars"></canvas>
+            </div>
           </div>
           <div class="page-content-row">
-            <div class="chart-wrapper two-column">
-              <canvas id="played-chart"></canvas>
-            </div>
-            <div class="chart-wrapper two-column">
-              <canvas id="banned-chart"></canvas>
-            </div>
+            <div id="stages-general"></div>
           </div>
           <a id="game-1"><h1>Game 1 Data</h1></a>
           <div class="page-content-row">

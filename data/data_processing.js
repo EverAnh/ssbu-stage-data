@@ -110,7 +110,7 @@ function processData (tourneyChoice) {
     "Castle Siege"             // 10
   ];
 
-  const shortName = [
+  const shortNames = [
     "PS2",
     "SV",            
     "BF",           
@@ -133,7 +133,7 @@ function processData (tourneyChoice) {
 
     stageStats.push({
       stage: stages[i],
-      shortName: shortName[i],
+      shortName: shortNames[i],
       gamesPlayed: 0,
       setsPlayed: 0,
       gamesBanned: 0,
@@ -216,10 +216,16 @@ function processData (tourneyChoice) {
 
   });
   // wrap up with removing stages not used by Frostbite
-  // should be the last modification to the array, to preserve known indices
+  // should be the last modification to these arrays, to preserve known indices
   if (tourneyChoice !== 1) {
-    stageStats.pop(); // castle siege
+    // castle siege
+    stageStats.pop();
+    stages.pop();
+    shortNames.pop();
+    // unova
     stageStats.splice(6, 1);
+    stages.splice(6, 1);
+    shortNames.splice(6, 1);
   }
 
   // ----
@@ -231,9 +237,9 @@ function processData (tourneyChoice) {
     builtString = builtString + util.inspect(e) + ",";
   });
   builtString = builtString + "];\n\n"
-                + "export const globalStats = "
-                + util.inspect(globalStats)
-                + ";";
+                + "export const globalStats = " + util.inspect(globalStats) + ";\n\n"
+                + "export const stages = " + util.inspect(stages) + ";\n\n"
+                + "export const shortNames = " + util.inspect(shortNames) + ";";
 
   const fileToWrite = (tourneyChoice === 1) ? 
     "../src/js/genesis6/data.js" :

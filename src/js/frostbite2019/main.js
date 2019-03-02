@@ -26,10 +26,6 @@ listEl.addEventListener('click', (event) => {
   drawer.open = false;
 });
 
-document.body.addEventListener('MDCDrawer:closed', () => {
-  mainContentEl.querySelector('input, button').focus();
-});
-
 // charts
 
 RenderStageSummaryTable();

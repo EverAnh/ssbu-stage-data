@@ -58,3 +58,23 @@ export const globalStats = { totalGames: 1083,
   totalSets: 535,
   totalBans: 1154,
   setsWithBanRecorded: 466 };
+
+export const stages = [ 'Pokémon Stadium 2',
+  'Smashville',
+  'Battlefield',
+  'Final Destination',
+  'Lylat Cruise',
+  'Town And City',
+  "Yoshi's Island (Brawl)",
+  'Kalos Pokémon League',
+  "Yoshi's Story" ];
+
+export const shortNames = [ 'PS2',
+  'SV',
+  'BF',
+  'FD',
+  'Lylat',
+  'T&C',
+  'Y.Island',
+  'Kalos',
+  'Y.Story' ];
