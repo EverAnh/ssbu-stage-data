@@ -4,15 +4,24 @@
   "description": "Charts to visualize the Smash Bros Ultimate stage data surveyed from certain major tournaments.",
   "main": "main.js",
   "dependencies": {
-    "@material/drawer": "^0.44.0",
+    "@material/drawer": "^0.44.1",
+    "@material/fab": "^0.44.1",
+    "@material/theme": "^0.43.0",
+    "@material/top-app-bar": "^0.44.1",
     "chart.js": "^2.7.3",
     "chartjs-plugin-datalabels": "^0.5.0",
     "chartjs-plugin-deferred": "^1.0.1",
-    "tabulator-tables": "^4.2.0",
-    "zenscroll": "^4.0.2"
+    "tabulator-tables": "^4.2.0"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "sass": "^1.17.2"
+  },
+  "sass": {
+    "includePaths": [
+      "src",
+      "node_modules"
+    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

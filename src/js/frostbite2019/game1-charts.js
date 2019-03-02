@@ -28,7 +28,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'Game 1 Selection Method'
+        text: 'G1 Selection Method'
       },
       plugins: {
         datalabels: {
@@ -59,7 +59,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'Which Stage Mutually Agreed Upon'
+        text: 'G1 Stages Via Agreement'
       },
       plugins: {
         datalabels: {
@@ -82,7 +82,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'Which Stage Selected With Striking'
+        text: 'G1 Stages Via Striking'
       },
       plugins: {
         datalabels: {
@@ -117,7 +117,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'All Game 1 Stages, Both Methods'
+        text: 'All G1 Stages, Both Methods'
       },
       plugins: {
         datalabels: {
