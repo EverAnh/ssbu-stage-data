@@ -3,24 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Smash Bros Stage Data - Charts & Visualization</title>
+    <title>Frostbite 2019 Stage Data (Smash Ultimate)</title>
+    <link href="https://unpkg.com/tabulator-tables@4.2.0/dist/css/tabulator.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <h1>Smash Bros Stage Data</h1>
-    <div class="row">
+    <h1>SSBU Stage Data:<br />Frostbite 2019</h1>
+    <div class="page-content-row">
+      <div id="stages-general"></div>
+    </div>
+    <div class="page-content-row">
+      <div class="chart-wrapper two-column">
+        <canvas id="played-chart"></canvas>
+      </div>
+      <div class="chart-wrapper two-column">
+        <canvas id="banned-chart"></canvas>
+      </div>
+    </div>
+    <hr />
+    <div class="page-content-row">
       <div class="chart-wrapper one-column">
-        <canvas id="decision-method-chart"></canvas>
+        <canvas id="selection-method-pie"></canvas>
       </div>
     </div>
-    <div class="row">
+    <div class="page-content-row">
       <div class="chart-wrapper two-column">
-        <canvas id="agreed-stage-chart"></canvas>
+        <canvas id="agreed-stage-pie"></canvas>
       </div>
       <div class="chart-wrapper two-column">
-        <canvas id="striked-stage-chart"></canvas>
+        <canvas id="striked-stage-pie"></canvas>
       </div>
     </div>
-    <script src="js/main.js"></script>
+    <div class="page-content-row">
+      <div class="chart-wrapper one-column">
+        <canvas id="game1-stacked-bars"></canvas>
+      </div>
+    </div>
+    
+    <script src="js/frostbite2019/main.js"></script>
   </body>
 </html>
