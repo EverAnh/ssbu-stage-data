@@ -4,10 +4,6 @@ $mdc-theme-primary: #82100f;
 @import "@material/drawer/mdc-drawer";
 @import "@material/list/mdc-list";
 
-#app-bar {
-  position: absolute;
-}
-
 body {
   font-family: 'noto sans', 'roboto', 'arial', sans-serif;
   margin: 0;
@@ -16,8 +12,12 @@ body {
 
 h1 {
   font-family: 'roboto', 'source sans pro', 'noto sans', sans-serif;
-  font-size: 3em;
   text-align: center;
+}
+
+.anchor {
+  padding-top: 64px;
+  margin-top: -64px;
 }
 
 .page-content-row {
@@ -27,7 +27,7 @@ h1 {
   justify-content: center;
 }
 
-#stages-general {
+#overview-table {
   width: 100%;
   margin-bottom: 60px;
 }

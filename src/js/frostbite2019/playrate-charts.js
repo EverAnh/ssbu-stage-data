@@ -7,7 +7,7 @@ import {
 } from './data';
 
 
-export const RenderPopularityCharts = function() {
+export const RenderPlayRateCharts = function() {
 
   const dataSortedByPlayed = Array.from(stageStats).sort((a, b) => {
       if (a.gamesPlayed > b.gamesPlayed)

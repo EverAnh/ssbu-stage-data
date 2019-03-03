@@ -8,36 +8,44 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
-
     <aside class="mdc-drawer mdc-drawer--modal">
       <div class="mdc-drawer__content">
         <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated" href="#general">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">General</i>
-            <span class="mdc-list-item__text">General Data</span>
+          <a class="mdc-list-item mdc-list-item--activated" href="#playrates" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
+            <span class="mdc-list-item__text">Play Rate Charts</span>
           </a>
-          <a class="mdc-list-item" href="#game-1">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Game 1</i>
-            <span class="mdc-list-item__text">Game 1 Data</span>
+          <a class="mdc-list-item" href="#overview-table-section">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
+            <span class="mdc-list-item__text">Overview Table</span>
+          </a>
+          <a class="mdc-list-item" href="#banrates">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
+            <span class="mdc-list-item__text">Ban Rate Chart</span>
+          </a>
+          <a class="mdc-list-item" href="#starters">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
+            <span class="mdc-list-item__text">Starter Charts</span>
           </a>
         </nav>
       </div>
     </aside>
     <div class="mdc-drawer-scrim"></div>
-
     <div class="mdc-drawer-app-content">
-      <header class="mdc-top-app-bar" id="app-bar">
+      <header class="mdc-top-app-bar app-bar" id="app-bar">
         <div class="mdc-top-app-bar__row">
-          <section class="mdc-top-app-bar__section">
-            <a class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-            <!-- span class="mdc-top-app-bar__title">SSBU Stage Data: Frostbite 2019</span -->
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <span class="mdc-top-app-bar__title">SSBU Stage Data: Frostbite 2019</span>
           </section>
         </div>
       </header>
+
       <main class="main-content" id="main-content">
         <div class="mdc-top-app-bar--fixed-adjust">
+        <!-- start main content -->
 
-          <a id="general"><h1>SSBU Stage Data:<br />Frostbite 2019</h1></a>
+          <a class="anchor" id="playrates"><h1>Play Rate Charts</a>
           <div class="page-content-row">
             <div class="chart-wrapper two-column">
               <canvas id="games-played-bars"></canvas>
@@ -47,17 +55,19 @@
             </div>
           </div>
           <div class="page-content-row">
-            <div id="stages-general"></div>
+            <a class="anchor" id="overview-table-section"></a>
+            <div id="overview-table"></div>
           </div>
           <div class="page-content-row">
             <div class="chart-wrapper two-column">
               text here
             </div>
             <div class="chart-wrapper two-column">
+              <a class="anchor" id="banrates"></a>
               <canvas id="sets-banned-bars"></canvas>
             </div>
           </div>
-          <a id="game-1"><h1>Game 1 Data</h1></a>
+          <a class="anchor"id="starters"><h1>Starter Stage (Game 1) Charts</h1></a>
           <div class="page-content-row">
             <div class="chart-wrapper one-column">
               <canvas id="selection-method-pie"></canvas>
@@ -77,6 +87,7 @@
             </div>
           </div>
 
+        <!-- end main content -->
         </div>
       </main>
     </div>

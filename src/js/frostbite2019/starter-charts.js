@@ -15,7 +15,7 @@ const MANUAL_DATA = {
   g1StrikedData: [292, 168, 123, 89, 20]
 };
 
-export const RenderGame1Charts = function() {
+export const RenderStarterCharts = function() {
 
   const selectionMethodPie = new Chart(document.getElementById("selection-method-pie").getContext('2d'), {
     type: 'pie',
@@ -28,7 +28,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'G1 Selection Method'
+        text: 'Selection Method'
       },
       plugins: {
         datalabels: {
@@ -59,7 +59,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'G1 Stages Via Agreement'
+        text: 'Starters Via Agreement'
       },
       plugins: {
         datalabels: {
@@ -82,7 +82,7 @@ export const RenderGame1Charts = function() {
     },
     options: {
       title: {
-        text: 'G1 Stages Via Striking'
+        text: 'Starters Via Striking'
       },
       plugins: {
         datalabels: {

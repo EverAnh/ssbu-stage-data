@@ -1,12 +1,12 @@
 import '../../css/main.scss';
 
-import {MDCDrawer } from "@material/drawer";
-import {MDCTopAppBar} from "@material/top-app-bar";
+import {MDCDrawer } from '@material/drawer';
+import {MDCTopAppBar} from '@material/top-app-bar';
 
-import { RenderPopularityCharts } from './popularity-charts';
-import { RenderStageSummaryTable } from './summary-table';
-import { RenderBanCharts } from './ban-charts';
-import { RenderGame1Charts } from './game1-charts';
+import { RenderPlayRateCharts } from './playrate-charts';
+import { RenderOverviewTable } from './overview-table';
+import { RenderBanRateCharts } from './banrate-charts';
+import { RenderStarterCharts } from './starter-charts';
 
 // material design components
 
@@ -27,10 +27,14 @@ listEl.addEventListener('click', (event) => {
   drawer.open = false;
 });
 
+document.body.addEventListener('MDCDrawer:closed', () => {
+  mainContentEl.querySelector('input, button').focus();
+});
+
 // charts
 
-RenderPopularityCharts();
-RenderStageSummaryTable();
-RenderBanCharts();
+RenderPlayRateCharts();
+RenderOverviewTable();
+RenderBanRateCharts();
 
-RenderGame1Charts();
+RenderStarterCharts();

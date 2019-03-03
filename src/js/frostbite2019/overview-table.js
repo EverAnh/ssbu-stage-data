@@ -41,7 +41,7 @@ function formatAsPercent(cell, formatterParams) {
 // ----
 // general/overall summary table (tabulator)
 // ----
-export const RenderStageSummaryTable = function() {
+export const RenderOverviewTable = function() {
 
   // Append percentages, a simple derived value, in decimal format.
   // Do not convert to a string that includes the % sign,
@@ -76,7 +76,7 @@ export const RenderStageSummaryTable = function() {
 
   adjustTableSettings(stageStatsColumns);
 
-  var stageStatsTable = new Tabulator("#stages-general", {
+  var stageStatsTable = new Tabulator("#overview-table", {
     data: stageStats,
     layout: window.screen.width < 640 ? "fitDataFill" : "fitColumns",
     initialSort:[{column:"gamesPlayed", dir:"desc"}],
