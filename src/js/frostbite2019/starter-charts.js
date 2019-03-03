@@ -5,14 +5,14 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { colorSettings } from '../chart-settings';
 
 const MANUAL_DATA = {
-  g1TotalGames: 1140,
-  g1TotalAgreed: 448,
-  g1TotalStriked: 692,
-  game3Played: 241,
-  starterNames: ['Pokémon Stadium 2','Battlefield','Smashville','Final Destination','Lylat Cruise'],
-  shortStarters: ['PS2', 'BF', 'SV', 'FD', 'Lylat'],
-  g1AgreedData: [333, 61, 34, 18, 2],
-  g1StrikedData: [292, 168, 123, 89, 20]
+  g1TotalGames: 535,
+  g1TotalAgreed: 315,
+  g1TotalStriked: 213,
+  game3Played: 115,
+  starterNames: ['Pokémon Stadium 2','Battlefield','Town And City','Smashville','Final Destination'],
+  shortStarters: ['PS2', 'BF', 'SV', 'FD', 'T&C'],
+  g1AgreedData: [270, 16, 10, 14, 5],
+  g1StrikedData: [50, 62, 56, 30, 15]
 };
 
 export const RenderStarterCharts = function() {
