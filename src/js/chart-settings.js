@@ -2,11 +2,12 @@ import Chart from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
 
 Chart.defaults.global.defaultFontColor = 'black';
-Chart.defaults.global.defaultFontFamily = "'Noto Sans', 'Open Sans', 'Droid Sans', 'Arial', sans-serif";
+Chart.defaults.global.defaultFontFamily = "'Noto Sans', 'Open Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif";
 Chart.defaults.global.defaultFontSize = 16;
 
 Chart.defaults.global.title.display = true;
-Chart.defaults.global.title.fontSize = 24;
+Chart.defaults.global.title.fontSize = 20;
+Chart.defaults.global.title.defaultFontFamily = "'Noto Sans', 'Open Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif";
 
 Chart.defaults.global.legend.position = 'bottom';
 

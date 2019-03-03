@@ -91,4 +91,12 @@ export const RenderOverviewTable = function() {
     stageStatsTable.redraw(true);
   });
 
+  const ulElem = document.querySelector("#other-stats");
+  ulElem.innerHTML = `
+    <span>Total games: ${globalStats.totalGames}</span>
+    <span>Total number of bans recorded: ${globalStats.totalBans}</span>
+    <span>Total sets: ${globalStats.totalSets}</span>
+    <span>Sets with bans recorded: ${globalStats.setsWithBanRecorded}</span>
+    `;
+
 }

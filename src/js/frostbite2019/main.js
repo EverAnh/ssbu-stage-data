@@ -36,5 +36,4 @@ document.body.addEventListener('MDCDrawer:closed', () => {
 RenderPlayRateCharts();
 RenderOverviewTable();
 RenderBanRateCharts();
-
 RenderStarterCharts();
