@@ -21,7 +21,7 @@ Chart.defaults.global.plugins.datalabels.clamp = true;
 Chart.defaults.global.plugins.datalabels.display = 'auto';
 
 export const colorSettings = {
-  backgroundColor: [ // .4
+  backgroundColor: [
     'rgba(255, 56, 55, .4)',
     'rgba(48, 138, 255, .4)',
     'rgba(255, 188, 22, .4)',

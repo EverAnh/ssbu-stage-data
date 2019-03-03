@@ -3,8 +3,9 @@ import '../../css/main.scss';
 import {MDCDrawer } from "@material/drawer";
 import {MDCTopAppBar} from "@material/top-app-bar";
 
-import { RenderStageSummaryTable } from './summary-table';
 import { RenderPopularityCharts } from './popularity-charts';
+import { RenderStageSummaryTable } from './summary-table';
+import { RenderBanCharts } from './ban-charts';
 import { RenderGame1Charts } from './game1-charts';
 
 // material design components
@@ -28,7 +29,8 @@ listEl.addEventListener('click', (event) => {
 
 // charts
 
-RenderStageSummaryTable();
 RenderPopularityCharts();
+RenderStageSummaryTable();
+RenderBanCharts();
 
 RenderGame1Charts();
