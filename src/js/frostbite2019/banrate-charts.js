@@ -18,6 +18,34 @@ export const RenderBanRateCharts = function() {
   const shortLabelsBanned = dataSortedByBanned.map(a => a.shortName);
   const stageLabelsBanned = dataSortedByBanned.map(a => a.stage);
 
+  const gamesBannedBars = new Chart(document.getElementById("games-banned-bars").getContext('2d'), {
+    type: 'horizontalBar',
+    data: {
+      labels: window.screen.width < 640 ? shortLabelsBanned : stageLabelsBanned,
+      datasets: [{
+          data: dataSortedByBanned.map(a => a.gamesBanned),
+          backgroundColor: 'RGBA(171, 0, 14, .8)',
+          hoverBackgroundColor: 'RGBA(130, 16, 15, 1)',
+          datalabels: {
+            display: false
+          }
+        }
+      ]
+    },
+    options: {
+      title: {
+        text: 'Total Times Banned'
+      },
+      legend: {
+        display: false
+      },
+      plugins: {
+        datalabels: {
+        }
+      }
+    }
+  });
+
   const setsBannedBars = new Chart(document.getElementById("sets-banned-bars").getContext('2d'), {
     type: 'horizontalBar',
     data: {
@@ -45,4 +73,5 @@ export const RenderBanRateCharts = function() {
       }
     }
   });
-}
+
+};
