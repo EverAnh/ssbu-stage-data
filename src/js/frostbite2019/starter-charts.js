@@ -117,7 +117,7 @@ export const RenderStarterCharts = function() {
     },
     options: {
       title: {
-        text: 'All G1 Stages, Both Methods'
+        text: 'All Game 1s, Both Methods'
       },
       plugins: {
         datalabels: {

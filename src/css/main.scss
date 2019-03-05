@@ -8,6 +8,7 @@ body {
   font-family: 'noto sans', 'open sans', 'roboto', 'arial', sans-serif;
   font-size: 16px;
   margin: 0;
+  padding-bottom: 120px;
   scroll-behavior: smooth;
 }
 
@@ -23,6 +24,10 @@ body {
   align-items: flex-start;
 }
 
+.page-content-row.text-container {
+  justify-content: space-between;
+}
+
 .one-column {
   flex-basis: 50%;
 }
@@ -36,13 +41,22 @@ body {
   min-height: 360px;
 }
 
+.text-section {
+  padding: 0 12px;
+  line-height: 150%;
+}
+
+.text-section > ul > li {
+  margin-bottom: 6px;
+}
+
 .anchor {
   padding-top: 64px;
   margin-top: -64px;
 }
 
 hr {
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 }
 
 h1 {
@@ -76,10 +90,20 @@ h2 {
   flex-wrap: wrap;
 }
 
+#other-stats > span {
+  margin: 0 12px;
+}
+
 @media (max-width: 767px) {
   .chart-wrapper {
     flex-basis: 100%;
     flex-grow: 1;
+  }
+  .text-section {
+    flex-basis: 100%;
+    flex-grow: 1;
+    margin: 0;
+    margin-right: 12px;
   }
   .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
     white-space: normal;
