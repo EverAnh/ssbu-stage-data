@@ -6,6 +6,7 @@ import {MDCTopAppBar} from '@material/top-app-bar';
 import { RenderPlayRateCharts } from './playrate-charts';
 import { RenderOverviewTable } from './overview-table';
 import { RenderBanRateCharts } from './banrate-charts';
+import { RenderBanPairsCharts } from './ban-pairs-charts';
 import { RenderStarterCharts } from './starter-charts';
 
 // material design components
@@ -36,4 +37,5 @@ document.body.addEventListener('MDCDrawer:closed', () => {
 RenderPlayRateCharts();
 RenderOverviewTable();
 RenderBanRateCharts();
+//RenderBanPairsCharts();
 RenderStarterCharts();
