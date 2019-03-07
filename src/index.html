@@ -52,11 +52,11 @@
     </aside>
     <div class="mdc-drawer-scrim"></div>
     <div class="mdc-drawer-app-content">
-      <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <header class="mdc-top-app-bar app-bar mdc-elevation--z4" id="app-bar">
         <div class="mdc-top-app-bar__row">
           <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
             <a class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-            <span class="mdc-top-app-bar__title">SSBU Stage Usage Stats: Frostbite 2019</span>
+            <span class="mdc-top-app-bar__title">SSBU Stage Stats: Frostbite 2019</span>
           </section>
           <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
             <a href="#about-stats" class="material-icons mdc-top-app-bar__action-item"><i class="material-icons">help</i></button>
@@ -67,7 +67,10 @@
       <main class="main-content" id="main-content">
         <div class="mdc-top-app-bar--fixed-adjust">
 
-          <a class="anchor" id="pick-rates"><h1>Pick Rate Charts</a>
+          <div id="jumbo-banner">
+            <h1>SSBU Stage Stats:<br />Frostbite 2019</h1>
+          </div>
+          <a class="anchor" id="pick-rates"><h1>Pick Rate Charts</h1></a>
           <div class="page-content-row">
             <div class="chart-wrapper two-column">
               <canvas id="games-played-bars"></canvas>

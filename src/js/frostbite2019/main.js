@@ -15,15 +15,15 @@ import { RenderStarterCharts } from './starter-charts';
 const barTitleElem = document.querySelector('.mdc-top-app-bar__title');
 
 if (window.innerWidth < 640) {
-  barTitleElem.innerHTML = "Stage Usage: Frostbite";
+  barTitleElem.innerHTML = "Stage Stats: Frostbite";
 }
 
 window.addEventListener('resize', function() {
   if (window.innerWidth < 640) {
-    barTitleElem.innerHTML = "Stage Usage: Frostbite";
+    barTitleElem.innerHTML = "Stage Stats: Frostbite";
   }
   else {
-    barTitleElem.innerHTML = "SSBU Stage Usage Stats: Frostbite 2019";
+    barTitleElem.innerHTML = "SSBU Stage Stats: Frostbite 2019";
   }
 });
 
