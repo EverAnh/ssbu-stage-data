@@ -9,6 +9,24 @@ import { RenderBanRateCharts } from './banrate-charts';
 import { RenderBanPairsCharts } from './ban-pairs-charts';
 import { RenderStarterCharts } from './starter-charts';
 
+// responsive top bar title / make the bar contents fit on phones
+// Tabulator tables have their own resize listeners too, in overview_table.js
+
+const barTitleElem = document.querySelector('.mdc-top-app-bar__title');
+
+if (window.innerWidth < 640) {
+  barTitleElem.innerHTML = "Stage Usage: Frostbite";
+}
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 640) {
+    barTitleElem.innerHTML = "Stage Usage: Frostbite";
+  }
+  else {
+    barTitleElem.innerHTML = "SSBU Stage Usage Stats: Frostbite 2019";
+  }
+});
+
 // material design components
 
 const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));

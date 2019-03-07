@@ -12,7 +12,7 @@ import {
 // this is called in two places: before constructing the Tabulator table, and
 // inside a resize event listener
 function adjustTableSettings(columnDefinitions) {
-  if (window.screen.width < 640) {
+  if (window.innerWidth < 640) {
     columnDefinitions[0].field = "shortName";
   }
   else {
@@ -78,7 +78,7 @@ export const RenderOverviewTable = function() {
 
   var stageStatsTable = new Tabulator("#overview-table", {
     data: stageStats,
-    layout: window.screen.width < 640 ? "fitDataFill" : "fitColumns",
+    layout: window.innerWidth < 640 ? "fitDataFill" : "fitColumns",
     initialSort:[{column:"gamesPlayed", dir:"desc"}],
     columns: stageStatsColumns
   });
@@ -86,7 +86,7 @@ export const RenderOverviewTable = function() {
   window.addEventListener('resize', function() {
     adjustTableSettings(stageStatsColumns);
     stageStatsTable.setColumns(stageStatsColumns);
-    stageStatsTable.layout = window.screen.width < 640 ? "fitDataFill" : "fitColumns";
+    stageStatsTable.layout = window.innerWidth < 640 ? "fitDataFill" : "fitColumns";
     console.log("resize triggered, layout: " + stageStatsTable.layout);
     stageStatsTable.redraw(true);
   });

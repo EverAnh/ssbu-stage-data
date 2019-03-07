@@ -21,7 +21,7 @@ export const RenderPlayRateCharts = function() {
   const gamesPlayedBars = new Chart(document.getElementById("games-played-bars").getContext('2d'), {
     type: 'horizontalBar',
     data: {
-      labels: window.screen.width < 640 ? shortLabelsPlayed : stageLabelsPlayed,
+      labels: window.innerWidth < 640 ? shortLabelsPlayed : stageLabelsPlayed,
       datasets: [{
           data: dataSortedByPlayed.map(a => a.gamesPlayed),
           backgroundColor: 'RGBA(171, 0, 14, .8)',
@@ -49,7 +49,7 @@ export const RenderPlayRateCharts = function() {
   const setsPlayedBars = new Chart(document.getElementById("sets-played-bars").getContext('2d'), {
     type: 'horizontalBar',
     data: {
-      labels: window.screen.width < 640 ? shortLabelsPlayed : stageLabelsPlayed,
+      labels: window.innerWidth < 640 ? shortLabelsPlayed : stageLabelsPlayed,
       datasets: [{
           data: dataSortedByPlayed.map(a => (a.setsPlayed / globalStats.totalSets * 100)),
           backgroundColor: 'RGBA(171, 0, 14, .8)',
