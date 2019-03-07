@@ -87,7 +87,7 @@ function processData (tourneyChoice) {
   // initialize empty results storage to keep track of tallies/etc during parsing
   // ----
 
-  let globalStats = {
+  const globalStats = {
     totalGames: 0,
     totalSets: 0,  // Known manually - just a sanity check.
     totalBans: 0,  // Since there's two bans each time, divide this by 2 to get total of games with bans recorded. This automatically excludes all game 1s.
@@ -124,10 +124,22 @@ function processData (tourneyChoice) {
     "C.Siege"           
   ];
 
-  // match Tabulator's expected data format:
+  // stageStats matches Tabulator's expected data format:
   // array of objects, each with the same properties
 
   const stageStats = [];
+
+  // For more efficient accessing during the nested loops of parsing (below),
+  // banPairsRaw is an object of objects. At the end, there is a step to convert
+  // it to Tabulator's expected format, array of objects.
+
+  // The property accessors of banPairsRaw and its elements must be full stages
+  // names, not short stages names, for easy lookup when parsing the speadsheet
+  // cells (which use full names).
+  
+  const banPairsRaw = {};
+
+  // they share the same initialization loop, over the same stage list
 
   for (let i = 0; i < stages.length; i++) {
 
@@ -140,7 +152,14 @@ function processData (tourneyChoice) {
       setsBanned: 0
     });
 
-    // mark Genesis 6 starters by default
+    banPairsRaw[stages[i]] = {};
+    for (let j = 0; j < stages.length; j++) {
+      if (tourneyChoice !== 1 && j !== 6 && j !== 10) {
+        banPairsRaw[stages[i]][stages[j]] = 0;
+      }
+    }
+
+    // for stageStats, mark Genesis 6 starters by default
     if (i <= 4) {
       stageStats[i].starter = true;
     }
@@ -148,7 +167,7 @@ function processData (tourneyChoice) {
       stageStats[i].starter = false;
     }
   }
-  // then modify for Frostbite 2019
+  // then modify starters for Frostbite 2019
   if (tourneyChoice !== 1) {
     stageStats[4].starter = false;
     stageStats[5].starter = true;
@@ -160,8 +179,8 @@ function processData (tourneyChoice) {
   // 'Set' here is the noun that the Smash community typically calls a group of
   // games - synonymous with 'match'. Do not confuse with the verb 'set'.
 
-  let setPlayedFlags = new Array(11).fill(false);
-  let setBannedFlags = new Array(11).fill(false);
+  const setPlayedFlags = new Array(11).fill(false);
+  const setBannedFlags = new Array(11).fill(false);
   let setHasBanRecorded = false;
 
   let tokenArr = null;
@@ -170,12 +189,15 @@ function processData (tourneyChoice) {
     // my comment on efficiency near the top of this file still applies
     tokenArr = row.split(',');
 
-    // tally games and sets...
-
     const playedIndices = (tourneyChoice === 1) ? [6, 9, 13] : [3, 11, 17];
     const bannedIndices = (tourneyChoice === 1) ? [7, 8, 11, 12] : [9, 10, 15, 16];
 
+    // For these nested loops, the outer one is every stage because we'll always
+    // include all of them. Then we look up the broken up tokens (the
+    // spreadsheet cells) by direct index, based on which columns are relevant.
     for (let i = 0; i < stages.length; i++) {
+
+      // tally games and sets, for played
       for (let j = 0; j < playedIndices.length; j++) {
         if (tokenArr[playedIndices[j]] === stages[i]) {
           stageStats[i].gamesPlayed++;
@@ -184,11 +206,28 @@ function processData (tourneyChoice) {
         }
       }
       for (let k = 0; k < bannedIndices.length; k++) {
+        // still tallying games and sets, but for banned this time
         if (tokenArr[bannedIndices[k]] === stages[i]) {
           stageStats[i].gamesBanned++;
           globalStats.totalBans++;
           setBannedFlags[i] = true;
           setHasBanRecorded = true;
+        }
+        // Ban pairs...
+        // Can generalize checking each pair to its first element only,
+        // then also count the reverse.
+        if (bannedIndices[k] === 7 ||
+            bannedIndices[k] === 11 ||
+            bannedIndices[k] === 9 ||
+            bannedIndices[k] === 15)
+        {
+          // breaking up nested accessors for readability and human understanding
+          const firstBan = tokenArr[bannedIndices[k]]; // should be stage name as string
+          const secondBan = tokenArr[bannedIndices[k+1]]; // should be stage name as string
+          if (firstBan !== "") {
+            banPairsRaw[firstBan][secondBan]++;
+            banPairsRaw[secondBan][firstBan]++;
+          }
         }
       }
     }
@@ -215,8 +254,23 @@ function processData (tourneyChoice) {
     }
 
   });
-  // wrap up with removing stages not used by Frostbite
+
+  // Convert banPairsRaw, an object of objects, to an array of objects, the
+  // format expected by Tabulator. As previously mentioned, the 2-dimensional
+  // object was used for more efficient accessing during the nested loops of
+  // the CSV-parsing step.
+  const banPairsColumns = [];
+  for (let key in banPairsRaw) {
+    if (tourneyChoice !== 1 && key !== "Unova Pokémon League" && key !== "Castle Siege") {
+      let newElem = { stageA: key };
+      Object.assign(newElem, banPairsRaw[key]);
+      banPairsColumns.push(newElem);
+    }
+  };
+
+  // remove stages not used by Frostbite
   // should be the last modification to these arrays, to preserve known indices
+  // during other steps
   if (tourneyChoice !== 1) {
     // castle siege
     stageStats.pop();
@@ -232,14 +286,18 @@ function processData (tourneyChoice) {
   // write results to file
   // ----
 
-  let builtString = "export const stageStats = [";
+  let builtString = "export const stageStats = [\n";
   stageStats.forEach((e) => {
-    builtString = builtString + util.inspect(e) + ",";
+    builtString = builtString + util.inspect(e) + ",\n";
   });
-  builtString = builtString + "];\n\n"
-                + "export const globalStats = " + util.inspect(globalStats) + ";\n\n"
-                + "export const stages = " + util.inspect(stages) + ";\n\n"
-                + "export const shortNames = " + util.inspect(shortNames) + ";";
+  builtString = builtString + "\n];\n\n" + "export const banPairs = [\n";
+  banPairsColumns.forEach((e) => {
+    builtString = builtString + util.inspect(e) + ",\n";
+  });
+  builtString = builtString + "\n];\n\n"
+                + "export const globalStats = \n" + util.inspect(globalStats) + ";\n\n"
+                + "export const stages = \n" + util.inspect(stages) + ";\n\n"
+                + "export const shortNames = \n" + util.inspect(shortNames) + ";";
 
   const fileToWrite = (tourneyChoice === 1) ? 
     "../src/js/genesis6/data.js" :
