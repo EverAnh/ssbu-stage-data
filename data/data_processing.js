@@ -92,6 +92,7 @@ function processData (tourneyChoice) {
     totalSets: 0,  // Known manually - just a sanity check.
     totalBans: 0,  // Since there's two bans each time, divide this by 2 to get total of games with bans recorded. This automatically excludes all game 1s.
     setsWithBanRecorded: 0,
+    totalBanPairs: 0
   };
 
   // full list is based on Genesis's longer list
@@ -192,9 +193,6 @@ function processData (tourneyChoice) {
     const playedIndices = (tourneyChoice === 1) ? [6, 9, 13] : [3, 11, 17];
     const bannedIndices = (tourneyChoice === 1) ? [7, 8, 11, 12] : [9, 10, 15, 16];
 
-    // For these nested loops, the outer one is every stage because we'll always
-    // include all of them. Then we look up the broken up tokens (the
-    // spreadsheet cells) by direct index, based on which columns are relevant.
     for (let i = 0; i < stages.length; i++) {
 
       // tally games and sets, for played
@@ -213,21 +211,26 @@ function processData (tourneyChoice) {
           setBannedFlags[i] = true;
           setHasBanRecorded = true;
         }
-        // Ban pairs...
-        // Can generalize checking each pair to its first element only,
-        // then also count the reverse.
-        if (bannedIndices[k] === 7 ||
-            bannedIndices[k] === 11 ||
-            bannedIndices[k] === 9 ||
-            bannedIndices[k] === 15)
-        {
-          // breaking up nested accessors for readability and human understanding
-          const firstBan = tokenArr[bannedIndices[k]]; // should be stage name as string
-          const secondBan = tokenArr[bannedIndices[k+1]]; // should be stage name as string
-          if (firstBan !== "") {
-            banPairsRaw[firstBan][secondBan]++;
-            banPairsRaw[secondBan][firstBan]++;
-          }
+      }
+    }
+
+    // TO REWRITE
+    // Ban pairs...
+    // Can generalize checking each pair to its first element only,
+    // then also count the reverse.
+    for (let k = 0; k < bannedIndices.length; k++) {
+      if (
+        (tourneyChoice === 1 && (bannedIndices[k] === 7 || bannedIndices[k] === 11)) ||
+        (tourneyChoice !== 1 && (bannedIndices[k] === 9 || bannedIndices[k] === 15))
+        )
+      {
+        // breaking up nested accessors for readability and human understanding
+        const firstBan = tokenArr[bannedIndices[k]]; // should be stage name as string
+        const secondBan = tokenArr[bannedIndices[k+1]]; // should be stage name as string
+        if (firstBan !== "") {
+          banPairsRaw[firstBan][secondBan]++;
+          banPairsRaw[secondBan][firstBan]++;
+          globalStats.totalBanPairs++;
         }
       }
     }

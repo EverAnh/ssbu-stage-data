@@ -33,7 +33,7 @@
           </a>
           <a class="mdc-list-item" href="#ban-pairs-section">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
-            <span class="mdc-list-item__text">Ban Pairs Table</span>
+            <span class="mdc-list-item__text">Ban Pair Tables</span>
           </a>
           <a class="mdc-list-item" href="#starters">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">arrow_right</i>
@@ -94,9 +94,19 @@
             </div>
           </div>
           <hr />
+          <a class="anchor" id="ban-pairs-section"><h1>Ban Pair Correlation Tables</h1></a>
           <div class="page-content-row">
-            <a class="anchor" id="ban-pairs-section"><h1>Ban Pair Correlations Table</h1></a>
-            <div id="ban-pairs-table" class="table-container"></div>
+            <p>
+              Number of times each pair occurs:<br />
+              (click or tap a column header to sort)
+            </p>
+            <div class="page-content-row">
+              <div id="ban-pairs-table-count"></div>
+            </div>
+            <p>For Frostbite's 9 stages, there are (9 * 9) - 9 = 72 possible pairings of different stages. For a uniform distribution (like randomly picking), we would expect each pairing to occur 100% / 72 = 1.39% of the time, on average. The total number of ban pairs recorded is 577. By dividing the above table by 577, we can see what each pair's actual % of occurences is in reality. Finally, that real % occurence is divided by 1.39% for a ratio of how many times higher or lower it is than the uniform average.</p>
+            <div class="page-content-row">
+              <div id="ban-pairs-table-percent"></div>
+            </div>
           </div>
           <hr />
           <a class="anchor"id="starters"><h1>Starter Stage (Game 1) Charts</h1></a>

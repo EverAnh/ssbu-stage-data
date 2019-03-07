@@ -54,23 +54,23 @@ export const RenderOverviewTable = function() {
   });
 
   var stageStatsColumns = [
-    {title: "Stage", field: "stage", widthGrow: 2, headerSortStartingDir:"desc", frozen: true},
-    {title: "Starter", field: "starter", widthGrow: 0, widthShrink: 1, visible: false, formatter: colorStarterRows},
+    {title: "Stage", field: "stage", widthGrow: 2, headerSortStartingDir:"desc", resizable: false, frozen: true},
+    {title: "Starter", field: "starter", widthGrow: 0, widthShrink: 1, visible: false, resizable: false, formatter: colorStarterRows},
     {title: "Games Played", widthGrow: 1, columns: [
-      {title: "#", field: "gamesPlayed", headerSortStartingDir:"desc"},
-      {title: "%", field: "gamesPlayedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent}
+      {title: "#", field: "gamesPlayed", headerSortStartingDir:"desc", resizable: false},
+      {title: "%", field: "gamesPlayedPercent", headerSortStartingDir:"desc", resizable: false, formatter: formatAsPercent}
     ]},
-    {title: "Times Banned", widthGrow: 1, columns: [
-      {title: "#", field: "gamesBanned", headerSortStartingDir:"desc"},
-      {title: "%", field: "gamesBannedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
+    {title: "Times Banned", widthGrow: 1, resizable: false, columns: [
+      {title: "#", field: "gamesBanned", headerSortStartingDir:"desc", resizable: false},
+      {title: "%", field: "gamesBannedPercent", headerSortStartingDir:"desc", resizable: false, formatter: formatAsPercent},
     ]},
-    {title: "Sets Played In", widthGrow: 1, columns: [
-      {title: "#", field: "setsPlayed", headerSortStartingDir:"desc"},
-      {title: "%", field: "setsPlayedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
+    {title: "Sets Played In", widthGrow: 1, resizable: false, columns: [
+      {title: "#", field: "setsPlayed", headerSortStartingDir:"desc", resizable: false},
+      {title: "%", field: "setsPlayedPercent", headerSortStartingDir:"desc", resizable: false, formatter: formatAsPercent},
     ]},
-    {title: "Sets Banned In", widthGrow: 1, columns: [
-      {title: "#", field: "setsBanned", headerSortStartingDir:"desc"},
-      {title: "%", field: "setsBannedPercent", headerSortStartingDir:"desc", formatter: formatAsPercent},
+    {title: "Sets Banned In", widthGrow: 1, resizable: false, columns: [
+      {title: "#", field: "setsBanned", headerSortStartingDir:"desc", resizable: false},
+      {title: "%", field: "setsBannedPercent", headerSortStartingDir:"desc", resizable: false, formatter: formatAsPercent},
     ]}
   ];
 
