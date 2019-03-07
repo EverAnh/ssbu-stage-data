@@ -25,7 +25,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "parcel src/index.html -d dist --open",
-    "prebuild": "rmdir dist /s /q",
     "build": "parcel build src/index.html -d dist --public-url ./"
   },
   "repository": {
