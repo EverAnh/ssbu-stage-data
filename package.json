@@ -9,6 +9,7 @@
     "chart.js": "^2.7.3",
     "chartjs-plugin-datalabels": "^0.5.0",
     "chartjs-plugin-deferred": "^1.0.1",
+    "express": "^4.16.4",
     "tabulator-tables": "^4.2.0"
   },
   "devDependencies": {
@@ -23,9 +24,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "parcel src/index.html -d docs --open",
-    "prebuild": "rmdir docs /s /q",
-    "build": "parcel build src/index.html -d docs --public-url ./"
+    "serve": "parcel src/index.html -d dist --open",
+    "prebuild": "rmdir dist /s /q",
+    "build": "parcel build src/index.html -d dist --public-url ./"
   },
   "repository": {
     "type": "git",
