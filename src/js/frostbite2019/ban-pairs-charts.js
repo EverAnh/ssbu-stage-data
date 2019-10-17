@@ -39,8 +39,8 @@ export const RenderBanPairsCharts = function() {
       align: "right",
       resizable: false,
       formatter: function(cell, formatterParams) {
-        const result = Number(cell.getValue() / 577 * 72).toFixed(2);
-        cell.getElement().style.backgroundColor = `RGBA(130, 16, 15, ${result / 15})`;
+        const result = Number(cell.getValue() / 577 * 36).toFixed(2);
+        cell.getElement().style.backgroundColor = `RGBA(130, 16, 15, ${result / 8})`;
         return result;
       }
     });
