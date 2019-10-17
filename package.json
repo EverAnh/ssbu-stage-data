@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "parcel src/index.html -d dist --open",
+    "serve": "parcel src/index.html -d docs --open",
     "build": "parcel build src/index.html -d dist --public-url ./"
   },
   "repository": {
